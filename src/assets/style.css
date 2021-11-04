@@ -1,0 +1,321 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Cabeçalho/Menu */
+header {
+  background-color: black;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 70px;
+  padding: 1rem;
+
+  position: fixed;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+
+  display: block;
+  padding: .5rem;
+
+}
+
+header a:hover {
+  color: #FEDB41;
+  transition: 0.2s ease-in;
+}
+
+#logo {
+  font-size: 2rem;
+  font-weight: bold;
+  
+  animation: fadeIn linear 1s;
+  -webkit-animation: fadeIn linear 1s;
+  -moz-animation: fadeIn linear 1s;
+  -o-animation: fadeIn linear 1s;
+  -ms-animation: fadeIn linear 1s;
+}
+
+header img {
+  height: 2.5rem;
+
+  animation: fadeIn linear 1s;
+  -webkit-animation: fadeIn linear 1s;
+  -moz-animation: fadeIn linear 1s;
+  -o-animation: fadeIn linear 1s;
+  -ms-animation: fadeIn linear 1s;
+}
+
+#menu {
+  display: flex;
+  gap: .5rem;
+
+  list-style: none;
+
+  animation: fadeIn linear 1s;
+  -webkit-animation: fadeIn linear 1s;
+  -moz-animation: fadeIn linear 1s;
+  -o-animation: fadeIn linear 1s;
+  -ms-animation: fadeIn linear 1s;
+}
+
+/* Menu Burger */
+#btn-mobile {
+  display: none;
+
+  cursor: pointer;
+}
+
+/* First section (Balance) */
+section {
+  background-color: #FEDB41;
+  
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 70px;
+}
+
+.container {
+  width: 80%;
+  height: 80%;
+
+  padding: 2.5rem;
+
+  background-color: #fff;
+  border: 3px solid #c7c7c7;
+  border-radius: 5px;
+
+  animation: fadeIn linear 1s;
+  -webkit-animation: fadeIn linear 1s;
+  -moz-animation: fadeIn linear 1s;
+  -o-animation: fadeIn linear 1s;
+  -ms-animation: fadeIn linear 1s;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.container-primary {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+}
+
+.container-primary h1 {
+  font-size: 2.5vw;
+}
+
+.input-finance {
+  border: 1px solid black;
+
+  height: 50%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 1rem 0;
+}
+
+form label {
+  font-weight: bold;
+  font-size: 1.5vw;
+}
+
+form input {
+  width: 40%;
+}
+
+form button {
+  width: 40%;
+  margin-top: .3rem;
+}
+
+.balance {
+  display: flex;
+  flex-direction: row;
+  
+  height: 50%;
+  width: 100%;
+}
+
+.debt, .recipe, .total {
+  border: 1px solid black;
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 1.5vw;
+}
+
+.container-secondary {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 50%;
+}
+
+h3 {
+  font-size: 1.8vw;
+}
+
+.container-secondary ul {
+  width: 100%;
+  list-style-type: none;
+  align-self: start;
+}
+
+.container-secondary ul li {
+  margin-top: .3rem;
+  margin-right: .2rem;
+  margin-left: .2rem;
+
+  font-size: 1.5vw;
+}
+
+.debt-line {
+  border-right: 3px solid red;
+}
+
+.recipe-line {
+  border-right: 3px solid rgb(0, 168, 0);
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #btn-mobile {
+    display: flex;
+    gap: .5rem;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+
+    border: none;
+    background: none;
+    color: #FEDB41;
+  }
+
+  #hamburger {
+    display: block;
+    width: 20px;
+    border-top: 2px solid;   
+  }
+  
+  #hamburger::after, #hamburger::before {
+    content: "";
+
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+
+    transition: .5s;
+    position: relative;
+  }
+  
+  #nav.active #hamburger {
+    border-top-color: transparent;  
+  }
+
+  #nav.active #hamburger::before {
+    transform: rotate(135deg);
+  }
+
+  #nav.active #hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+
+  #logo {
+    display: none;
+  }
+  
+  #menu {
+    display: block;
+    
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    
+    width: 50%;
+    height: 0px;
+
+    background-color: black;
+    text-align: end;
+    
+    z-index: 1000;
+    transition: .6s;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+  
+  #nav.active #menu {
+    display: block;
+    height: calc(100vh - 70px);
+
+    visibility: visible;
+    overflow-y: auto;
+  }
+
+  #menu a {
+    padding: 1rem;
+
+    border-bottom: 2px solid white;
+    color: #FEDB41;
+  }
+
+  #menu a:hover {
+    background: #FEDB41;
+    color: black;
+  }
+
+}
+
+/* Key frames */
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
